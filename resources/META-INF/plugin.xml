@@ -27,6 +27,8 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <fileTypeFactory implementation="com.tcimba.idea.latex.LatexFileTypeFactory"/>
+    <lang.parserDefinition language="Latex" implementationClass="com.tcimba.idea.latex.LatexParserDefinition"/>
+
   </extensions>
 
   <actions>
