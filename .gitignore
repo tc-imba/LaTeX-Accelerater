@@ -24,7 +24,7 @@
 hs_err_pid*
 
 .idea
-!.idea/LaTeX-Accelerator.iml
+!.idea/modules.xml
 gen
 out
 *.skeleton

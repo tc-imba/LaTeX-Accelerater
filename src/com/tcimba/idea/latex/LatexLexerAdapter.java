@@ -11,7 +11,7 @@ import java.io.Reader;
 public class LatexLexerAdapter extends FlexAdapter {
 
     public LatexLexerAdapter() {
-        super(new LatexLexer((Reader) null));
+        super(new _LatexLexer((Reader) null));
     }
 
 }
