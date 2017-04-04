@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 /**
  * Created by liu on 17-4-2.
@@ -10,7 +10,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
-import com.tcimba.idea.latex.psi.LatexTypes;
+import com.umji.tcimba.idea.latex.psi.LatexTypes;
 import org.jetbrains.annotations.NotNull;
 
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;

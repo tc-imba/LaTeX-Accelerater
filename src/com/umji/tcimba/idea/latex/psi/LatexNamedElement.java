@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex.psi;
+package com.umji.tcimba.idea.latex.psi;
 
 /**
  * Created by liu on 17-4-2.

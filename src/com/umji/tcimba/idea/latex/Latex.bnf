@@ -1,0 +1,60 @@
+{
+  parserClass="com.umji.tcimba.idea.latex.parser.LatexParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Latex"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.umji.tcimba.idea.latex.psi"
+  psiImplPackage="com.umji.tcimba.idea.latex.psi.impl"
+
+  elementTypeHolderClass="com.umji.tcimba.idea.latex.psi.LatexTypes"
+  elementTypeClass="com.umji.tcimba.idea.latex.psi.LatexElementType"
+  tokenTypeClass="com.umji.tcimba.idea.latex.psi.LatexTokenType"
+
+  psiImplUtilClass="com.umji.tcimba.idea.latex.psi.impl.LatexPsiImplUtil"
+
+  tokens=[
+    ENV_BEGIN_TOKEN='\begin'
+    ENV_END_TOKEN='\end'
+    LBRACE='{'
+    RBRACE='}'
+    MATH_INLINE_TOKEN='$'
+    MATH_DISPLAY_TOKEN='$$'
+  ]
+}
+
+//latexFile ::= (property|COMMENT|CRLF|BEGIN_ENV|END_ENV|brace|option_symbol|TEXT|COMMAND)*
+
+latexFile ::= (content|graph)*
+content ::= (content_env|text|math)
+
+content_env ::= content_env_begin content* content_env_end
+content_env_begin ::= ENV_BEGIN_TOKEN LBRACE CONTENT_ENV_NAME RBRACE
+content_env_end ::= ENV_END_TOKEN LBRACE CONTENT_ENV_NAME RBRACE
+
+math ::= (math_inline|math_display)
+math_inline ::= MATH_INLINE_TOKEN (text|math_inline_env)* MATH_INLINE_TOKEN
+math_inline_env ::= math_inline_env_begin (text|math_inline_env)* math_inline_env_end
+math_inline_env_begin ::= ENV_BEGIN_TOKEN MATH_INLINE_ENV_NAME LBRACE RBRACE
+math_inline_env_end ::= ENV_END_TOKEN MATH_INLINE_ENV_NAME LBRACE RBRACE
+math_display ::= (math_display_env|math_display_abbr)
+math_display_env ::= math_display_env_begin (text|math_inline_env)* math_display_env_end
+math_display_env_begin ::= ENV_BEGIN_TOKEN MATH_DISPLAY_ENV_NAME LBRACE RBRACE
+math_display_env_end ::= ENV_END_TOKEN MATH_DISPLAY_ENV_NAME LBRACE RBRACE
+math_display_abbr ::= MATH_DISPLAY_TOKEN (text|math_inline_env)* MATH_DISPLAY_TOKEN
+
+
+/*property ::= (KEY SEPARATOR VALUE?)|KEY {
+    pin=3
+    recoverWhile="recover_property"
+    mixin="LatexNamedElementImpl"
+    implements="LatexNamedElement"
+    methods=[getKey getValue getName setName getNameIdentifier getPresentation]
+}*/
+
+//property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[getKey getValue]}
+//brace ::= LBRACE|RBRACE|LBRACKET|RBRACKET|LANGLE|RANGLE|LPAREN|RPAREN
+//option_symbol ::= OPTION_COMMA|OPTION_EQUAL|OPTION_NAME
+
+//private recover_property ::= !(KEY|SEPARATOR|COMMENT)

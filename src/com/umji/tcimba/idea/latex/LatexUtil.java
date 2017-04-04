@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 /**
  * Created by liu on 17-4-2.
@@ -10,7 +10,8 @@ import com.intellij.psi.PsiManager;
 import com.intellij.psi.search.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.indexing.FileBasedIndex;
-import com.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.psi.LatexProperty;
 
 import java.util.*;
 

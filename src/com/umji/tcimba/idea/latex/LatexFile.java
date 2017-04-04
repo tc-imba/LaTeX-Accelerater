@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 /**
  * Created by liu on 2017/4/2.
@@ -7,7 +7,7 @@ package com.tcimba.idea.latex;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
-import com.tcimba.idea.latex.*;
+import com.umji.tcimba.idea.latex.*;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;

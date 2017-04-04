@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex.psi.impl;
+package com.umji.tcimba.idea.latex.psi.impl;
 
 /**
  * Created by liu on 17-4-2.
@@ -7,8 +7,11 @@ package com.tcimba.idea.latex.psi.impl;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.*;
-import com.tcimba.idea.latex.LatexIcons;
-import com.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.LatexIcons;
+import com.umji.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.psi.LatexElementFactory;
+import com.umji.tcimba.idea.latex.psi.LatexProperty;
+import com.umji.tcimba.idea.latex.psi.LatexTypes;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 

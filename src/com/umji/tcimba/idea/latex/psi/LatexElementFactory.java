@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex.psi;
+package com.umji.tcimba.idea.latex.psi;
 
 /**
  * Created by liu on 17-4-2.
@@ -6,8 +6,8 @@ package com.tcimba.idea.latex.psi;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
-import com.tcimba.idea.latex.LatexFile;
-import com.tcimba.idea.latex.LatexFileType;
+import com.umji.tcimba.idea.latex.LatexFile;
+import com.umji.tcimba.idea.latex.LatexFileType;
 
 public class LatexElementFactory {
 

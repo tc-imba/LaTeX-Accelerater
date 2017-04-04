@@ -1,4 +1,4 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 /**
  * Created by liu on 2017/4/1.

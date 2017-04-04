@@ -1,10 +1,10 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import com.intellij.psi.TokenType;
-import com.tcimba.idea.latex.psi.LatexTypes;
+import com.umji.tcimba.idea.latex.psi.LatexTypes;
 
 %%
 

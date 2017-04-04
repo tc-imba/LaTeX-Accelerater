@@ -1,7 +1,7 @@
-package com.tcimba.idea.latex;
+package com.umji.tcimba.idea.latex;
 
 /**
- * Created by liu on 17-4-1.
+ * Created by liu on 2017/4/2.
  */
 
 import com.intellij.lang.*;
@@ -9,11 +9,13 @@ import com.intellij.lexer.Lexer;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.tree.*;
-import com.tcimba.idea.latex.parser.LatexParser;
-import com.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.parser.LatexParser;
+import com.umji.tcimba.idea.latex.psi.*;
+import com.umji.tcimba.idea.latex.psi.LatexTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class LatexParserDefinition implements ParserDefinition {
+public class LatexFileDefinition implements ParserDefinition {
+    
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
     public static final TokenSet COMMENTS = TokenSet.create(LatexTypes.COMMENT);
 
