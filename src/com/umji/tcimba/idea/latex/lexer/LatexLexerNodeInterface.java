@@ -1,0 +1,16 @@
+package com.umji.tcimba.idea.latex.lexer;
+
+/**
+ * Created by liu on 17-4-6.
+ */
+public interface LatexLexerNodeInterface {
+
+    enum NODE_TYPE {
+        ENVIRONMENT,
+        OPTIONS,
+        SCOPE
+    }
+
+    void setName(String name);
+    String getName();
+}

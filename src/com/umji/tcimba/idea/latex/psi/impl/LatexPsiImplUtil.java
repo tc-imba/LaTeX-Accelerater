@@ -1,8 +1,11 @@
+/*
 package com.umji.tcimba.idea.latex.psi.impl;
 
+*/
 /**
  * Created by liu on 17-4-2.
- */
+ *//*
+
 
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
@@ -84,3 +87,4 @@ public class LatexPsiImplUtil {
     }
 
 }
+*/

@@ -1,8 +1,11 @@
+/*
 package com.umji.tcimba.idea.latex;
 
+*/
 /**
  * Created by liu on 17-4-2.
- */
+ *//*
+
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -60,3 +63,4 @@ public class LatexUtil {
     }
     
 }
+*/

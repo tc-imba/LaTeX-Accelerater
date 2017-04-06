@@ -26,24 +26,43 @@
 
 //latexFile ::= (property|COMMENT|CRLF|BEGIN_ENV|END_ENV|brace|option_symbol|TEXT|COMMAND)*
 
-latexFile ::= (content|graph)*
-content ::= (content_env|text|math)
+/*latexFile ::= (content|graph)*
+content ::= (content_env|text|math|COMMENT|command|scope)
+content_no_math ::= (content_env_no_math|text|COMMENT|command|scope_no_math)
+scope ::= (LBRACE content* RBRACE)
+scope_no_math ::= (LBRACE content_no_math* RBRACE)
 
 content_env ::= content_env_begin content* content_env_end
+content_env_no_math ::= content_env_begin content_no_math* content_env_end
 content_env_begin ::= ENV_BEGIN_TOKEN LBRACE CONTENT_ENV_NAME RBRACE
 content_env_end ::= ENV_END_TOKEN LBRACE CONTENT_ENV_NAME RBRACE
 
 math ::= (math_inline|math_display)
 math_inline ::= MATH_INLINE_TOKEN (text|math_inline_env)* MATH_INLINE_TOKEN
-math_inline_env ::= math_inline_env_begin (text|math_inline_env)* math_inline_env_end
-math_inline_env_begin ::= ENV_BEGIN_TOKEN MATH_INLINE_ENV_NAME LBRACE RBRACE
-math_inline_env_end ::= ENV_END_TOKEN MATH_INLINE_ENV_NAME LBRACE RBRACE
+math_inline_env ::= math_inline_env_begin (text|math_inline_env|content_no_math)* math_inline_env_end
+math_inline_env_begin ::= ENV_BEGIN_TOKEN LBRACE MATH_INLINE_ENV_NAME RBRACE
+math_inline_env_end ::= ENV_END_TOKEN LBRACE MATH_INLINE_ENV_NAME RBRACE
 math_display ::= (math_display_env|math_display_abbr)
-math_display_env ::= math_display_env_begin (text|math_inline_env)* math_display_env_end
-math_display_env_begin ::= ENV_BEGIN_TOKEN MATH_DISPLAY_ENV_NAME LBRACE RBRACE
-math_display_env_end ::= ENV_END_TOKEN MATH_DISPLAY_ENV_NAME LBRACE RBRACE
-math_display_abbr ::= MATH_DISPLAY_TOKEN (text|math_inline_env)* MATH_DISPLAY_TOKEN
+math_display_env ::= math_display_env_begin (text|math_inline_env|content_no_math)* math_display_env_end
+math_display_env_begin ::= ENV_BEGIN_TOKEN LBRACE MATH_DISPLAY_ENV_NAME RBRACE
+math_display_env_end ::= ENV_END_TOKEN LBRACE MATH_DISPLAY_ENV_NAME RBRACE
+math_display_abbr ::= MATH_DISPLAY_TOKEN (text|math_inline_env|content_no_math)* MATH_DISPLAY_TOKEN
 
+command ::= COMMAND_BEGIN_TOKEN COMMAND_NAME ((LANGLE options RANGLE)|(LBRACKET options RBRACKET))*
+options ::= option OPTION_COMMA option*
+option ::= (OPTION_NAME OPTION_EQUAL)? OPTION_VALUE*/
+
+latexFile ::= content*
+content ::= (environment|TEXT|MATH_TEXT|math|COMMENT|command|scope|CRLF)
+content_inline ::= (TEXT|MATH_TEXT|math|COMMENT|command|scope|CRLF)
+environment ::= environment_begin content* environment_end
+environment_begin ::= ENV_BEGIN_TOKEN LBRACE ENV_NAME RBRACE
+environment_end ::= ENV_END_TOKEN LBRACE ENV_NAME RBRACE
+scope ::= (LBRACE content* RBRACE)
+command ::= LBRACE COMMAND_NAME ((LANGLE options RANGLE)|(LBRACKET options RBRACKET)|scope)*
+options ::= option OPTION_COMMA option*
+option ::= (OPTION_NAME OPTION_EQUAL)? content_inline*
+math ::= (MATH_INLINE_TOKEN content* MATH_INLINE_TOKEN)|(MATH_DISPLAY_TOKEN content* MATH_DISPLAY_TOKEN)
 
 /*property ::= (KEY SEPARATOR VALUE?)|KEY {
     pin=3

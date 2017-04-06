@@ -1,8 +1,11 @@
+/*
 package com.umji.tcimba.idea.latex.psi;
 
+*/
 /**
  * Created by liu on 17-4-2.
- */
+ *//*
+
 
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
@@ -31,5 +34,6 @@ public class LatexElementFactory {
         return (LatexFile) PsiFileFactory.getInstance(project).
                 createFileFromText(name, LatexFileType.INSTANCE, text);
     }
-    
+
 }
+*/

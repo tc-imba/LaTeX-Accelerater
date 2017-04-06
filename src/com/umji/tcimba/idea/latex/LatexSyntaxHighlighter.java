@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
-public class LatexSyntaxHighlighter extends SyntaxHighlighterBase{
+public class LatexSyntaxHighlighter extends SyntaxHighlighterBase {
 
     public static final TextAttributesKey SEPARATOR =
             createTextAttributesKey("LATEX_SEPARATOR", DefaultLanguageHighlighterColors.OPERATION_SIGN);
@@ -50,16 +50,19 @@ public class LatexSyntaxHighlighter extends SyntaxHighlighterBase{
     @NotNull
     @Override
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
-        if (tokenType.equals(LatexTypes.SEPARATOR)) {
+        if (tokenType.equals(LatexTypes.MATH_INLINE_TOKEN)) {
             return SEPARATOR_KEYS;
-        } else if (tokenType.equals(LatexTypes.COMMAND) || tokenType.equals(LatexTypes.BEGIN_ENV) || tokenType.equals(LatexTypes.END_ENV)) {
+        } else if (tokenType.equals(LatexTypes.ENV_BEGIN_TOKEN) ||
+                tokenType.equals(LatexTypes.ENV_END_TOKEN)) {
             return KEY_KEYS;
-        } else if (tokenType.equals(LatexTypes.OPTION_EQUAL) || tokenType.equals(LatexTypes.OPTION_COMMA)) {
+        } else if (tokenType.equals(LatexTypes.ENV_NAME)) {
+            return INSTANCE_FIELD_KEYS;
+        /*} else if (tokenType.equals(LatexTypes.OPTION_EQUAL) || tokenType.equals(LatexTypes.OPTION_COMMA)) {
             return EMPTY_KEYS;
         } else if (tokenType.equals(LatexTypes.OPTION_NAME)) {
             return INSTANCE_FIELD_KEYS;
         } else if (tokenType.equals(LatexTypes.VALUE)) {
-            return VALUE_KEYS;
+            return VALUE_KEYS;*/
         } else if (tokenType.equals(LatexTypes.COMMENT)) {
             return COMMENT_KEYS;
         } else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
